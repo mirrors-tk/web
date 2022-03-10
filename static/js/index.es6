@@ -205,6 +205,8 @@ var vmIso = new Vue({
 	}
 });
 
+$('input#search').focus();
+
 });
 
-// vim: ts=2 sts=2 sw=2 noexpandtab
+// vim: ft=javascript ts=2 sts=2 sw=2 noexpandtab

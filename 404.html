@@ -24,13 +24,13 @@ permalink: /404.html
               {% endif %}
             </div>
             <div class="not-found-text thuhidden">
-              如果您认为这一定是出了什么问题，或者正在寻找暂未包含的镜像，欢迎您前往 
-              <a href="https://github.com/tuna/issues/issues/new/choose">
-                {% fa_svg fab.fa-github %} tuna/issues
+              如果您认为这一定是出了什么问题，或者正在寻找暂未包含的镜像，欢迎您前往
+              <a href="https://github.com/mirrors-tk/feedback/issues/new/choose">
+                {% fa_svg fab.fa-github %} mirror-tk/feedback
               </a>
-              提交<a href="https://github.com/tuna/issues/issues/new?labels=Service+Issue,404&template=2-bug_report.md" id="new_issue_bug"><!--
+              提交<a href="https://github.com/mirrors-tk/feedback/issues/new?template=03_bug_report.yaml" id="new_issue_bug"><!--
            -->错误报告</a><!--
-           -->或者<a href="https://github.com/tuna/issues/issues/new?labels=MirrorRequest&template=1-mirror_request.md" id="new_issue_mr"><!--
+           -->或者<a href="https://github.com/mirrors-tk/feedback/issues/new?template=01_mirror_request.yaml" id="new_issue_mr"><!--
            -->镜像申请</a>
             </div>
             <div class="not-found-links">
@@ -48,16 +48,14 @@ permalink: /404.html
     {% include footer.html %}
     <script type="application/javascript">
       (function(){
-        var tag = "[" + "{{ site.issue_tag }}" + "]";
         var bugLink = document.getElementById("new_issue_bug");
         var bugURL = new URL(bugLink.href);
-        bugURL.searchParams.append("title", tag + "404 at " + location.pathname);
+        bugURL.searchParams.append("title", location.pathname + " 404");
         bugLink.href = bugURL.href;
-        
+
         var mrLink = document.getElementById("new_issue_mr");
         var mrURL = new URL(mrLink.href);
-        mrURL.searchParams.append("title", tag + "Mirror Request for new mirror " +
-          location.pathname.split('/')[1]);
+        mrURL.searchParams.append("title", location.pathname.split('/')[1]);
         mrLink.href = mrURL.href;
       })();
     </script>

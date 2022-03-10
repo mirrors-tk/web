@@ -167,18 +167,38 @@ body {
             }
         }
     }
+
+    .sidebar {
+        @media (min-width: 768px) {
+            margin-top: -12px;
+        }
+        h4 {
+            margin-top: 24px;
+        }
+        ul {
+            margin-left: 8px;
+        }
+    }
+
+
     #news {
-        li > a {
+        li:not(:last-child) > a {
             color: $color_secondary;
             @include dark{
                 color: $color_secondary_dark;
             }
         }
+
+        li:last-child {
+            list-style: none;
+        }
     }
+
     #download-link {
         margin-bottom: 1em;
     }
 }
+
 #isoModal {
     .nav-tabs {
         margin-bottom: .5em;
@@ -218,9 +238,9 @@ body {
 /* Footer */
 #footerwrap {
     color: $color_footer_content;
-    margin-top: 100px;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    margin-top: 60px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     @include noissue{
         background: $color_secondary;
     }
@@ -232,6 +252,9 @@ body {
     }
     i, i:hover, a, a:hover {
         color: $color_footer_content;
+    }
+    img.logo {
+        height: 18px;
     }
 }
 
@@ -345,16 +368,15 @@ body {
     line-height: 18px;
     padding: 8px;
     border: 1px solid #e3e3e3;
-    margin-top: 20px;
-    margin-right: 10px;
+    margin: 12px;
     max-width: 240px;
-    height: 30px;
-    font-size: 16px;
+    height: 28px;
     background: transparent;
 }
 
 #mirror-title {
     float: left;
+    margin: 12px;
 }
 
 #upgrade-mask{
@@ -551,6 +573,17 @@ div.buorg {
       box-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
     }
   }
+}
+
+.navbar .navbar-brand {
+    float: inherit;
+    padding: 12px;
+}
+
+.navbar img.logo {
+    height: 48px;
+    margin: 0px;
+    vertical-align: text-bottom;
 }
 
 svg.icon {
