@@ -387,7 +387,7 @@ body {
 }
 
 .not-found {
-    height: 600px;
+    height: 450px;
 
     display: flex;
     flex-direction: column;
@@ -443,7 +443,7 @@ body {
 
 .not-found-hint {
     font-weight: bold;
-    font-size: 48px;
+    font-size: 36px;
     margin-bottom: 40px;
     padding: 0 20px;
 }
@@ -455,7 +455,7 @@ body {
 }
 
 .not-found-text {
-    max-width: 450px;
+    max-width: 600px;
     box-sizing: border-box;
     padding: 0 40px;
     margin-bottom: 80px;
@@ -465,7 +465,7 @@ body {
 }
 
 .not-found-code {
-    font-size: 12px;
+    font-size: 14px;
     opacity: .54;
     font-weight: normal;
     font-style: italic;
@@ -589,9 +589,9 @@ div.buorg {
 svg.icon {
   display: inline-block;
   width: 1em;
-  height: 1.42857143em;
+  height: 1em;
   fill: currentColor;
-  vertical-align: bottom;
+  vertical-align: text-bottom;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {

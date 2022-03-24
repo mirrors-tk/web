@@ -2,7 +2,7 @@
 <html>
 	{% include head.html notArticle=true %}
 	<body>
-		{% unless page.legacy or site.issue %}
+		{% unless page.legacy or page.listing or site.issue %}
 		{% include legacy_notes.html %}
 		{% endunless %}
 		{% include nav.html %}
@@ -31,13 +31,26 @@
 				</div>
 				<div class="row">
 					{% else %}
-					<div class="col-{% if page.legacy %}xs{% else %}sm{% endif %}-8 table-responsive" id="mirror-list">
+					<div class="col-{% if page.listing %}md{% else %}sm{% endif %}-8 col-lg-9 table-responsive" id="mirror-list">
 						<div class="row">
-							<h4 id="mirror-title">{% fa_svg fas.fa-cube %} 镜像列表 </h4>
+							<h4 id="mirror-title">
+								{% fa_svg fas.fa-cube %}
+								<span id="path">
+									{% if page.listing %}
+										{% raw %}{{html .Name}}{% endraw %}
+									{% else %}
+										/
+									{% endif %}
+								</span>
+							</h4>
 							{% unless page.legacy %}
 							<input type="search" v-model.trim="filter" id="search" placeholder="搜索" autocomplete="off">
 							{% endunless %}
 						</div>
+
+						{% if page.listing %}
+							{% include {{ page.listing }} %}
+						{% else %}
 						<table class="table" v-if="mirrorList.length">
 							<thead>
 								<tr class="row">
@@ -95,10 +108,11 @@
 							<div class="sk-rect sk-rect5"></div>
 						</div>
 						{% endunless %}
+						{% endif %}
 					</div>
 					{% endif %}
 					{% unless site.issue %}
-					<div class="sidebar col-{% if page.legacy %}xs{% else %}sm{% endif %}-4">
+					<div class="sidebar col-{% if page.listing %}md{% else %}sm{% endif %}-4 col-lg-3">
 						<div id="wizard">
 						</div>
 					{% endunless %}
@@ -156,9 +170,8 @@
 			</div><!--/container -->
 		</div><!--/mirrors -->
 		{% include footer.html %}
-		{% unless page.legacy or site.issue %}
+		{% unless page.legacy or page.listing or site.issue or site.hide_download %}
 		<!-- iso download wizard modal -->
-		<!-- Modal -->
 		{% raw %}
 		<div class="modal fade" id="isoModal" tabindex="-1" role="dialog" aria-labelledby="isoModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg" role="document">
@@ -197,16 +210,31 @@
 		      </div>
 		    </div>
 		  </div>
-		</div><!-- /iso download wizard modal -->
+		</div>
 		{% endraw %}
+		<!-- /iso download wizard modal -->
 		{% endunless %}
 	</body>
-	{% raw %}
-	{% endraw %}
-	{% unless page.legacy or site.issue %}
+
+	{% unless page.legacy or page.listing or site.issue %}
 	<script src="/static/js/index.js?{{ site.data['hash'] }}"></script>
 	<script src="/static/js/browser-update.js?{{ site.data['hash'] }}"></script>
 	{% endunless %}
+	{% if page.listing %}
+		<script defer>
+		$('input#search').keyup(function() {
+			var q = this.value.trim().toLowerCase();
+			$('tr.file').each(function(_, row) {
+				row = $(row);
+				if (row.find('.name').text().toLowerCase().includes(q)) {
+					row.show();
+				} else {
+					row.hide();
+				}
+			});
+		});
+		</script>
+	{% endif %}
 </html>
 <!--
 	vim: ts=2 sts=2 sw=2 noexpandtab

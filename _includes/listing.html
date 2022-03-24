@@ -1,0 +1,43 @@
+<table class="table">
+<thead>
+	<tr class="row">
+		<th class="col-sm-6 col-lg-7"><a href="?sort=namedirfirst&order=desc">Name</a></th>
+		<th class="col-sm-2 col-lg-2"><a href="?sort=size&order=desc">Size</a></th>
+		<th class="col-sm-4 col-lg-3"><a href="?sort=time&order=desc">Last Update</a></th>
+	</tr>
+</thead>
+<tbody>
+{% raw %}
+	<tr class="file">
+		<td>
+			{% endraw %}{% fa_svg far.fa-meh-blank %}{% raw %}
+			<a class="name" href="..">../</a>
+		</td>
+		<td class="size" title="0">&mdash;</td>
+		<td class="time">&mdash;</td>
+	</tr>
+	{{- range .Entries}}
+	<tr class="file">
+		<td>
+			{{- if .IsDir}}
+				{% endraw %}{% fa_svg far.fa-folder %}{% raw %}
+			{{- else}}
+				{% endraw %}{% fa_svg far.fa-file %}{% raw %}
+			{{- end}}
+			<a class="name" href="{{html .URL}}">{{html .Leaf}}</a>
+		</td>
+		{{- if .IsDir}}
+		<td class="size" title="0">&mdash;</td>
+		{{- else}}
+		<td class="size" title="{{.Size}}">{{.Size | humanSize}}</td>
+		{{- end}}
+		{{- if .ModTime | afterEpoch }}
+		<td class="time" title="{{.ModTime }}">{{.ModTime | humanTime}}</td>
+		{{- else}}
+		<td class="time">&mdash;</td>
+		{{- end}}
+	</tr>
+	{{- end}}
+{% endraw %}
+</tbody>
+</table>

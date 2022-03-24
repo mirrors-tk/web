@@ -20,4 +20,4 @@ RUN sed -i 's/@context ||= ExecJS.compile("var self = this; " + File.read(script
 
 ENV LANG en_US.UTF-8
 
-CMD ["jekyll", "build"]
+ENTRYPOINT ["jekyll", "build"]
