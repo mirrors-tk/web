@@ -65,7 +65,7 @@ var vmMirList = new Vue({
 		},
 		refreshMirrorList () {
 			var self = this;
-			$.getJSON("/static/tunasync.json", (status_data) => {
+			$.getJSON("/status.json", (status_data) => {
 				var unlisted_mir = unlisted.map(d => processMirrorItem(d))
 				status_data = status_data.map(d => processMirrorItem(d));
 				var mir_data = $.merge(unlisted_mir, status_data);
@@ -164,6 +164,12 @@ var processMirrorItem = function(d){
 	return d;
 }
 
+$('input#search').focus();
+
+if (!$("isoModal").length) {
+	return;
+}
+
 var vmIso = new Vue({
 	el: "#isoModal",
 	data: {
@@ -204,8 +210,6 @@ var vmIso = new Vue({
 		}
 	}
 });
-
-$('input#search').focus();
 
 });
 
