@@ -1,65 +1,46 @@
 # Content Related
 mirror_desc:
-  - name: arch4edu
-    desc: 用于 Arch Linux 和 Arch Linux ARM 的非官方软件仓库，主要包含科研、教学所需的各种常用软件
+  - name: 7z-zstd
+    desc: 开源压缩软件，基于 7-Zip 扩展了 zstd, brotli 等压缩算法的支持
   - name: archlinux32
     desc: 用于 32 位 x86 平台的 Arch Linux 镜像和软件包仓库
-  - name: elrepo
-    desc: RHEL 及其变体的 RPM 软件包仓库
   - name: epel
     desc: 企业版 Linux 附加软件包
-  - name: gentoo
-    desc: Gentoo Linux 的 Stage 3 镜像
-  - name: gentoo-portage
-    desc: Gentoo Linux 的 Portage 包管理器镜像源（HTTP / rsync 访问）
-  - name: gentoo-portage.git
-    desc: Gentoo Linux 的 Portage 包管理器镜像源（Git 访问）
-  - name: gentoo-portage-prefix
-    desc: Gentoo/Prefix 的 Portage 包管理器镜像源（仅适用于 macOS）
   - name: github-raw
-    desc: 一些 Github 项目的部分文件镜像（被其他镜像所使用）
+    desc: 部分 GitHub 仓库中的文件镜像
   - name: github-release
-    desc: 一些项目的 Github Release 镜像
-  - name: googlefonts
-    desc: Google 设计的 Noto 系列开源字体
-  - name: linux-stable.git
-    desc: Linux 内核源代码的 Git 仓库, 稳定版分支
+    desc: 一些项目的 GitHub Release 镜像
+  - name: kitty
+    desc: 开源终端模拟器，基于 PuTTY 增强了部分功能
   - name: linux.git
     desc: Linux 内核源代码的 Git 仓库
-  - name: linuxlite-cd
-    desc: 基于 Ubuntu 长期支持版本（LTS）的 Linux 发行版 Linux Lite 的安装镜像
-  - name: mxlinux-isos
-    desc: MX Linux 的安装镜像
+  - name: magisk
+    desc: Android 系统 Root 框架
+  - name: mono
+    desc: 开源跨平台的 .NET Framework 实现
   - name: osdn
     desc: OSDN 网站提供的开源软件下载
-  - name: packman
-    desc: 为 Debian、Fedora、openSUSE、Ubuntu 提供额外和过期软件包的仓库
   - name: pkgsrc
     desc: NetBSD 的第三方软件源
+  - name: pop-os
+    desc: Pop!_OS 的软件包仓库
   - name: slitaz
     desc: 轻量级 Linux 发行版
-  - name: texstudio
-    desc: 使用 Qt 编写的自由的 LaTeX 套件
 
 new_mirrors:
-  - archlinux32
+  - 7z-zstd
+  - kitty
 
 unlisted_mirrors:
-  - link_to: 'osdn'
-    name: "mxlinux-isos"
-    url: '/osdn/storage/g/m/mx/mx-linux/ISOs/'
-  - link_to: 'osdn'
-    name: "linuxlite-cd"
-    url: '/osdn/storage/g/l/li/linuxlite/'
-  - link_to: 'osdn'
-    name: "archlinux-gui"
-    url: '/osdn/arch-linux-gui/'
   - link_to: 'github-release'
-    name: "googlefonts"
-    url: '/github-release/googlefonts/'
+    name: "7z-zstd"
+    url: '/github-release/mcmilk/7-Zip-zstd/?sort=namedirfirst&order=desc'
   - link_to: 'github-release'
-    name: "texstudio"
-    url: '/github-release/texstudio-org/texstudio/'
+    name: "kitty"
+    url: '/github-release/cyd01/KiTTY/?sort=namedirfirst&order=desc'
+  - link_to: 'github-release'
+    name: "magisk"
+    url: '/github-release/topjohnwu/Magisk/'
 
 force_redirect_help_mirrors:
   - linux.git
