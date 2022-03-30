@@ -1,3 +1,4 @@
+{% raw %}
 <table class="table">
 <thead>
 	<tr class="row">
@@ -7,7 +8,6 @@
 	</tr>
 </thead>
 <tbody>
-{% raw %}
 	<tr class="file">
 		<td>
 			{% endraw %}{% fa_svg far.fa-meh-blank %}{% raw %}
@@ -38,6 +38,12 @@
 		{{- end}}
 	</tr>
 	{{- end}}
-{% endraw %}
 </tbody>
 </table>
+{{- if .Entries | len | ne .Total}}
+<span>
+	8&lt; -------- {{.Entries | len}} files of {{.Total}} were shown,
+	in case your browser was to blame for global warming. --------
+</span>
+{{- end}}
+{% endraw %}
