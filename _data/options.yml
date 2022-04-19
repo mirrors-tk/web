@@ -4,6 +4,10 @@ mirror_desc:
     desc: 开源压缩软件，基于 7-Zip 扩展了 zstd, brotli 等压缩算法的支持
   - name: archlinux32
     desc: 用于 32 位 x86 平台的 Arch Linux 镜像和软件包仓库
+  - name: devuan
+    desc: 不含 systemd 的 Debian 衍生版本
+  - name: devuan-cd
+    desc: Devuan 系统安装镜像
   - name: epel
     desc: 企业版 Linux 附加软件包
   - name: github-raw
@@ -14,6 +18,8 @@ mirror_desc:
     desc: 开源终端模拟器，基于 PuTTY 增强了部分功能
   - name: linux.git
     desc: Linux 内核源代码的 Git 仓库
+  - name: liquorix
+    desc: 为桌面应用优化的 Linux 内核
   - name: magisk
     desc: Android 系统 Root 框架
   - name: mono
@@ -22,14 +28,13 @@ mirror_desc:
     desc: OSDN 网站提供的开源软件下载
   - name: pkgsrc
     desc: NetBSD 的第三方软件源
+  - name: pop-iso
+    desc: Pop!_OS 发行版的 ISO 和树莓派镜像
   - name: pop-os
     desc: Pop!_OS 的软件包仓库
-  - name: slitaz
-    desc: 轻量级 Linux 发行版
 
 new_mirrors:
-  - 7z-zstd
-  - kitty
+  - pop-os
 
 unlisted_mirrors:
   - link_to: 'github-release'
